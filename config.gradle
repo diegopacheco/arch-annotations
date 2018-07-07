@@ -1,14 +1,3 @@
-buildscript {
-  repositories {
-    jcenter()
-    mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/groups/public/' }
-  }
-  dependencies {
-    classpath 'org.ajoberstar:gradle-git:1.7.2'
-  }
-}
-
 import org.ajoberstar.grgit.*
 
 task github {
