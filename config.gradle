@@ -9,8 +9,13 @@ buildscript {
   }
 }
 
-apply plugin: 'java'
-apply plugin: 'org.ajoberstar.grgit'
+//apply plugin: 'java'
+//apply plugin: 'org.ajoberstar.grgit'
+
+plugins {
+  id "java" version "1.0.0" apply true
+  id "org.ajoberstar.grgit" version "1.7.2" apply true
+}
 
 import org.ajoberstar.grgit.*
 
