@@ -11,21 +11,6 @@ buildscript {
 
 import org.ajoberstar.grgit.*
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/groups/public/' }
-    mavenLocal()
-}
-
-dependencies {
-  // github task downloaded from github now we can use it here :D
-  compile 'com.github.diegopacheco.sandbox.java:arch-annotations:1.0-SNAPSHOT'
-}
-
-
 task github {
  File dir=new File('target/github')
  if(!dir.exists()) {
