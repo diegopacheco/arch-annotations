@@ -1,21 +1,23 @@
-import org.ajoberstar.grgit.*
+subprojects { subproject ->
+  import org.ajoberstar.grgit.*
 
-task github {
- File dir=new File('target/github')
- if(!dir.exists()) {
-  def grgit = Grgit.clone(dir: dir, uri: 'https://github.com/diegopacheco/arch-annotations.git')
-  exec {
-    workingDir 'target/github'
-    commandLine 'sh', '-c', 'mvn clean package install'
+  task github {
+   File dir=new File('target/github')
+   if(!dir.exists()) {
+    def grgit = Grgit.clone(dir: dir, uri: 'https://github.com/diegopacheco/arch-annotations.git')
+    exec {
+      workingDir 'target/github'
+      commandLine 'sh', '-c', 'mvn clean package install'
+    }
+   }
   }
- }
-}
-compileJava.dependsOn github
+  compileJava.dependsOn github
 
-task githubClean {
-  exec {
-    workingDir '.'
-    commandLine 'sh', '-c', 'rm -rf target/github'
+  task githubClean {
+    exec {
+      workingDir '.'
+      commandLine 'sh', '-c', 'rm -rf target/github'
+    }
   }
+  clean.dependsOn githubClean
 }
-clean.dependsOn githubClean
